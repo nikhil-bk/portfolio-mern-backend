@@ -45,6 +45,9 @@ mongoose.connect(URI, {
 
 // kkkkkkkkkkkkkkk
 
+app.get("/",(res,res)=>{
+    res.send("App is running")
+})
 
 app.use('/contact', require('./routes/contactRoute'));
 app.use('/user', require('./routes/userRoute'));
