@@ -43,9 +43,8 @@ mongoose.connect(URI, {
 })
 
 
-// kkkkkkkkkkkkkkk
 
-app.get("/",(res,res)=>{
+app.get("/",(req,res)=>{
     res.send("App is running")
 })
 
