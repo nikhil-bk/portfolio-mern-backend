@@ -18,8 +18,13 @@ app.use(express.json());
 
 
 app.use(cors({
-    AccessControlAllowOrigin: '*',
-    origin: 'https://mern-frontend-portfolio.vercel.app',
+    
+    origin: [
+        'https://mern-frontend-portfolio.vercel.app',
+        'https://mern-frontend-portfolio-git-master-nikhil-bk.vercel.app',
+        'https://mern-frontend-portfolio-ga1p9uhm5-nikhil-bk.vercel.app'
+    
+    ],
     methods:['GET',"POST","PUT","PATCH","OPTIONS","DELETE"],
     credentials:true
 }));
