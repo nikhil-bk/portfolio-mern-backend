@@ -18,11 +18,11 @@ app.use(express.json());
 
 const corsOptions = {
     
-    origin: 'https://mern-frontend-portfolio.vercel.app/',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+    origin: 'https://mern-frontend-portfolio.vercel.app',
+
     
   }
-app.use(cors({ credentials: true }));
+app.use(cors(corsOptions));
 app.use(fileUpload({
     useTempFiles:true
 }))
