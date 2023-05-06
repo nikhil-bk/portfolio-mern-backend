@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 
 
-// const __dirname = path.resolve()
+const __dirname = path.resolve()
 app.use(cors({
     credentials:true,
     origin:["https://mern-frontend-portfolio.vercel.app"]
