@@ -15,7 +15,11 @@ cloudinary.config({
 router.post('/upload', (req, res)=>{
   try {
       console.log(req.files);
-      res.status(200).json({"msg":"no cors error"})
+      images= {
+        "public_id": "udemy/icopa4duntpsyeyonahb",
+        "url": "https://res.cloudinary.com/dwg22vc1v/image/upload/v1683307806/udemy/icopa4duntpsyeyonahb.jpg"
+    }
+      res.status(200).json(images)
 
     //   if(!req.files || Object.keys(req.files).length===0)
     //   return res.status(400).send('no files uploaded')
