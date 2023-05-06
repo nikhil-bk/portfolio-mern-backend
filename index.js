@@ -15,6 +15,13 @@ const app = express();
 
 // middleware 
 app.use(express.json());
+
+const corsOptions = {
+    
+    origin: 'https://mern-frontend-portfolio.vercel.app/',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+    
+  }
 app.use(cors({ credentials: true }));
 app.use(fileUpload({
     useTempFiles:true
