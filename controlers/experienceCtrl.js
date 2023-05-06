@@ -19,12 +19,15 @@ exports.getExperience = async (req, res)=>{
   
   // .....add education user.......
   exports.addExperience =  async (req, res)=>{
-    const {experience} = req.body;
+    const {company_name,start_and_end,job_title,technology} = req.body;
   
   try {
   
     const newExperience = new experienceSchema({
-        experience
+      company_name,
+      start_and_end,
+      job_title,
+      technology
     })
     
     await newExperience.save();
@@ -53,12 +56,15 @@ exports.getExperience = async (req, res)=>{
     
     // .....update specific education user by id.......
   exports.updateExperience = async (req, res)=>{
-    const {experience} = req.body;
+    const {company_name,start_and_end,job_title,technology} = req.body;
    
     try {
      const newExperience = await experienceSchema.findByIdAndUpdate(req.params.id, {
   
-        experience
+      company_name,
+      start_and_end,
+      job_title,
+      technology
    
       });
    

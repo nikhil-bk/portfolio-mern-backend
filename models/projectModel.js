@@ -24,6 +24,10 @@ description:{
      type:Object,
      required:true
  },
+ link:{
+  type:String,
+  required:true
+ }
 
 })
 

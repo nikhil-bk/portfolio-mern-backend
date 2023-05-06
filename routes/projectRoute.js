@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const projectSchima=require('../models/projectModel');
+const projectSchema=require('../models/projectModel');
 
 
 
 // get projects
 router.get("/project",async (req, res)=>{
   try {
-    const project = await projectSchima.find(req.body);
+    const project = await projectSchema.find(req.body);
     res.json(project);
   } catch (err) {
       res.status(500).json({msg:err})
@@ -17,13 +17,14 @@ router.get("/project",async (req, res)=>{
 
 // add project
 router.post("/project/", async (req, res)=>{
-    const {title,product_id,description,images} = req.body
+    const {title,product_id,description,images,link} = req.body
     try {
-     const project = new projectSchima({
+     const project = new projectSchema({
          title,
          product_id,
          description,
-         images
+         images,
+         link
      })
  
      await project.save();
@@ -43,7 +44,7 @@ router.post("/project/", async (req, res)=>{
 router.get("/project/:id", async (req, res)=>{
   try {
      
-    let project = await projectSchima.findById(req.params.id)
+    let project = await projectSchema.findById(req.params.id)
     res.json(project)
 
   } catch (err) {
@@ -58,11 +59,12 @@ router.get("/project/:id", async (req, res)=>{
 router.put("/project/:id", async (req, res)=>{
   const {title,product_id,description,images} = req.body
    try {
-    const project = await projectSchima.findByIdAndUpdate(req.params.id,{
+    const project = await projectSchema.findByIdAndUpdate(req.params.id,{
       title,
       product_id,
       description,
-      images
+      images,
+      link
     
        })
       await project.save();
@@ -75,7 +77,7 @@ router.put("/project/:id", async (req, res)=>{
 
 // delete project
 router.delete("/project/:id", async (req, res)=>{
-  let project = await projectSchima.findByIdAndDelete(req.params.id);
+  let project = await projectSchema.findByIdAndDelete(req.params.id);
    try {
     await project
     res.json({msg:"item deleted"})
