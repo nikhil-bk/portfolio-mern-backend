@@ -19,6 +19,7 @@ app.use(express.json());
 const corsOptions = {
     
     origin: 'https://mern-frontend-portfolio.vercel.app',
+    credentials:true
 
     
   }
