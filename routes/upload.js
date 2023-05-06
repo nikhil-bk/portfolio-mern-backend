@@ -15,28 +15,29 @@ cloudinary.config({
 router.post('/upload', (req, res)=>{
   try {
       console.log(req.files);
+      res.status(200).json({"msg":"no cors error"})
 
-      if(!req.files || Object.keys(req.files).length===0)
-      return res.status(400).send('no files uploaded')
+    //   if(!req.files || Object.keys(req.files).length===0)
+    //   return res.status(400).send('no files uploaded')
      
-      const file = req.files.file;
-      if(file.size>1024*1024) {
-          removeTmp(file.tempFilePath);
-        return res.status(400).json({msg:"size too large"})
-      }
+    //   const file = req.files.file;
+    //   if(file.size>1024*1024) {
+    //       removeTmp(file.tempFilePath);
+    //     return res.status(400).json({msg:"size too large"})
+    //   }
 
-       if(file.mimetype !=='image/jpeg' && file.mimetype !== 'image/png' ){
-        removeTmp(file.tempFilePath);
-        return res.status(400).json({msg:"file format is incorrect"});
-       }
+    //    if(file.mimetype !=='image/jpeg' && file.mimetype !== 'image/png' ){
+    //     removeTmp(file.tempFilePath);
+    //     return res.status(400).json({msg:"file format is incorrect"});
+    //    }
       
 
-       cloudinary.v2.uploader.upload(file.tempFilePath, {folder:"udemy" }, async (err, result)=>{
-         if(err) throw err;
+    //    cloudinary.v2.uploader.upload(file.tempFilePath, {folder:"udemy" }, async (err, result)=>{
+    //      if(err) throw err;
          
-         removeTmp(file.tempFilePath);
-         res.json({public_id:result.public_id,url:result.secure_url})
-    })
+    //      removeTmp(file.tempFilePath);
+    //      res.json({public_id:result.public_id,url:result.secure_url})
+    // })
 
 
 
