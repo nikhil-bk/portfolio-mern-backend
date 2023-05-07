@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 
 
-
+// const __dirname = path.resolve()
 app.use(cors({
     credentials:true,
     origin:["https://mern-frontend-portfolio.vercel.app"]
@@ -30,7 +30,7 @@ app.use(cors({
 }));
 app.use(fileUpload({
     useTempFiles:true,
-    tempFileDir:path.join(__dirname, '/tmp')
+    tempFileDir:path.resolve(__dirname,'tmp')
 }))
 
 
