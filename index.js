@@ -17,10 +17,12 @@ const app = express();
 app.use(express.json());
 
 
-// const __dirname = path.resolve()
+
 app.use(cors({
     credentials:true,
     origin:["https://mern-frontend-portfolio.vercel.app"]
+    // origin:["http://localhost:3000"]
+    
 
     
    
@@ -28,7 +30,7 @@ app.use(cors({
 }));
 app.use(fileUpload({
     useTempFiles:true,
-    tempFileDir:path.join(__dirname, '/tmp')
+    tempFileDir:path.join(__dirname, './tmp')
 }))
 
 
@@ -75,10 +77,10 @@ PORT =process.env.PORT || 5000;
 
 
 // static assets
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static('client/build'));
-    app.get('*', (req, res)=>res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
-}
+// if(process.env.NODE_ENV==='production'){
+//     app.use(express.static('client/build'));
+//     app.get('*', (req, res)=>res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
+// }
 
 
 
