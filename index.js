@@ -30,7 +30,7 @@ app.use(cors({
 }));
 app.use(fileUpload({
     useTempFiles:true,
-    tempFileDir: process.cwd()
+    tempFileDir: '/tmp'
     
 }))
 
