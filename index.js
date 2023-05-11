@@ -20,7 +20,7 @@ app.use(express.json());
 // const __dirname = path.resolve()
 app.use(cors({
     credentials:true,
-    origin:["https://mern-frontend-portfolio.vercel.app"]
+    origin:["https://mern-frontend-portfolio.vercel.app","https://mern-frontend-portfolio-nikhil-bk.vercel.app"]
     // origin:["http://localhost:3000"]
     
 
