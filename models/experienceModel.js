@@ -8,6 +8,10 @@ company_name:{
     type:String,
     required:true
 },
+location:{
+    type:String,
+    required:true
+},
 start_and_end:{
     type:String,
     required:true
